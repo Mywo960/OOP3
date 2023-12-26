@@ -19,15 +19,16 @@ public class Main {
     public static double solver(String problem) {
         Stack<Double> stack = new Stack<>();
 
-        String[] tokens = problem.split("\\s+");
+        String[] values = problem.split("\\s+");
 
-        for (String token : tokens) {
-            if (isNumeric(token)) {
-                stack.push(Double.parseDouble(token));
+
+        for (String value : values) {
+            if (isNumeric(value)) {
+                stack.push(Double.parseDouble(value));
             } else {
                 double operand2 = stack.pop();
                 double operand1 = stack.pop();
-                double result = stepProblem(token, operand1, operand2);
+                double result = stepProblem(value, operand1, operand2);
                 stack.push(result);
             }
         }
